@@ -10,25 +10,23 @@ public class RunEMM {
 	/**
 	 * @param args
 	 */
-	/*public static void listFilesForFolder(final File folder) {
-		for (final File fileEntry : folder.listFiles()) {
-	        if (fileEntry.isDirectory()) {
-	            listFilesForFolder(fileEntry);
-	        } else {
-	            System.out.println(fileEntry.getName());
-	        }
-	    }
-	}*/
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		kalangosSelenium kalangos = new kalangosSelenium();
-		
+		/**
+		 * HL7 Message reading location 
+		 */
 		File folder = new File("E:\\EMM_Projects\\Release_Works\\Test_documents\\Release7.2\\Messages2");
 		//Files.getFileExtension("E:\\EMM_Projects\\Release_Works\\Test_documents\\Release7.2\\Messages2");
-		//listFilesForFolder(folder);
+		/**
+		 * int i - incrementing value to identify true or false data
+		 * String booleanValue is value of true or false
+		 * String WSDL is loading WSDL file
+		 */
 		int i=0;
 		String booleanValue="true";
 		String WSDL = "http://192.168.1.6:7800/EasyMedAPI/ws/labResultNotification?wsdl";
+		
 		for (final File fileEntry : folder.listFiles()) {
 	        
 			if (fileEntry.isDirectory()) {
