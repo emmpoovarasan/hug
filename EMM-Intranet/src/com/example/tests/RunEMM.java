@@ -25,7 +25,8 @@ public class RunEMM {
 		 */
 		int i=0;
 		String booleanValue="true";
-		String WSDL = "http://192.168.1.6:7800/EasyMedAPI/ws/labResultNotification?wsdl";
+		String WSDL = "http://192.168.1.6:7800/EasyMedAPI/ws/hugs?wsdl";
+		//"http://192.168.1.6:7800/EasyMedAPI/ws/labResultNotification?wsdl"
 		/**
 		 * This below function is used to create excel
 		 */

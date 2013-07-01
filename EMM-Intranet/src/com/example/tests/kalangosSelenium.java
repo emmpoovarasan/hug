@@ -49,7 +49,7 @@ public class kalangosSelenium {
     System.out.println("======> "+resultOutput+" <===========");
     
     
-    fnPassArgsToExcel(i,resultOutput);
+    fnPassArgsToExcel(i,resultOutput,booleanValue);
     
     driver.findElement(By.linkText("Reset")).click();
     
@@ -72,14 +72,16 @@ public class kalangosSelenium {
 	    sheet = workbook.createSheet("Results", 0);
   }
   
-  public void fnPassArgsToExcel(int i, String outputResults) throws Exception{
-	  Label lable = new Label(0, i, outputResults);
+  public void fnPassArgsToExcel(int i, String outputResults, String booleanResult) throws Exception{
+	  Label outputResultslable = new Label(0, i, outputResults);
+	  Label booleanResultlable = new Label(1, i, booleanResult);
 	  if (sheet != null){
-		  sheet.addCell(lable);
-		  workbook.write();
+		  sheet.addCell(outputResultslable);
+		  sheet.addCell(booleanResultlable);
 	  }
   }
   public void fnCloseExcel() throws Exception{
+	  workbook.write();
 	  workbook.close();
   }
   /**
