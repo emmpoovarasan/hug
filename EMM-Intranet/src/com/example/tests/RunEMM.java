@@ -50,7 +50,8 @@ public class RunEMM {
 	  			  	}else{
 	  				  booleanValue="false";
 	  			  	}
-	        		System.out.println(i+" Started===========> "+fileEntry.getAbsolutePath()+"\n");
+	        		System.out.println("========= Message Starts ==========");
+	        		System.out.println(i+" ===========> "+fileEntry.getAbsolutePath()+"\n");
 	        		/**
 	        		 * This below function is used to calling selenium functions
 	        		 */
@@ -58,7 +59,8 @@ public class RunEMM {
 	        			kalangos.setUp();
 	        			kalangos.testkalangosSelenium(fileEntry.getAbsolutePath(),booleanValue,WSDL,i);
 	        			kalangos.tearDown();
-	        			System.out.println(i+" Finished===========> "+fileEntry.getAbsolutePath()+"\n");
+	        			System.out.println(i+" ===========> "+fileEntry.getAbsolutePath()+"\n");
+	        			System.out.println("========= Message Ends ==========");
 	        			i=i+1;
 	        		}catch (Exception e){
 	        			e.printStackTrace();

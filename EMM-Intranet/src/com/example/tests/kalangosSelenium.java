@@ -44,8 +44,7 @@ public class kalangosSelenium {
     if(driver.findElement(By.id("poo")).getText() != null){
     	resultOutput= driver.findElement(By.id("poo")).getText();	
     }  
-    System.out.println("======> "+resultOutput+" <===========");
-    
+    System.out.println(resultOutput);
     
     fnPassArgsToExcel(i,resultOutput,booleanValue);
     
@@ -95,8 +94,13 @@ public class kalangosSelenium {
 	  
   }
   public void fnCloseExcel() throws Exception{
-	  workbook.write();
-	  workbook.close();
+	  if (workbook !=null){
+		  workbook.write();
+		  workbook.close();
+	  }else{
+		  workbook.close();
+	  }
+		    
   }
   /**
    * This function is used to manage timeout. 
