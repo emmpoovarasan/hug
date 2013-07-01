@@ -26,7 +26,18 @@ public class RunEMM {
 		int i=0;
 		String booleanValue="true";
 		String WSDL = "http://192.168.1.6:7800/EasyMedAPI/ws/labResultNotification?wsdl";
-		
+		/**
+		 * This below function is used to create excel
+		 */
+		try {
+			kalangos.fnCreateExcelWorkBookAndSheet();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		/**
+		 * This below function is used to manipulate logic
+		 */
 		for (final File fileEntry : folder.listFiles()) {
 	        
 			if (fileEntry.isDirectory()) {
@@ -39,9 +50,12 @@ public class RunEMM {
 	  				  booleanValue="false";
 	  			  	}
 	        		System.out.println(i+" Started===========> "+fileEntry.getAbsolutePath()+"\n");
+	        		/**
+	        		 * This below function is used to calling selenium functions
+	        		 */
 	        		try{
 	        			kalangos.setUp();
-	        			kalangos.testkalangosSelenium(fileEntry.getAbsolutePath(),booleanValue,WSDL);
+	        			kalangos.testkalangosSelenium(fileEntry.getAbsolutePath(),booleanValue,WSDL,i);
 	        			kalangos.tearDown();
 	        			System.out.println(i+" Finished===========> "+fileEntry.getAbsolutePath()+"\n");
 	        			i=i+1;
@@ -50,8 +64,18 @@ public class RunEMM {
 	        		}
 	        	}
 	        }
+			
 	    }
-
+		/**
+		 * This blow function is used to Close excel
+		 */
+		try {
+			kalangos.fnCloseExcel();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		/**
 		 *  this below class is not used this HUG project.
 		 */
