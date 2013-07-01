@@ -8,7 +8,7 @@ import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
-
+	
 public class kalangosSelenium {
   private WebDriver driver;
   private String baseUrl;
@@ -38,8 +38,6 @@ public class kalangosSelenium {
     fnTimeOut();
   }
   
-  
-
   @After
   public void tearDown() throws Exception {
     driver.quit();
@@ -48,6 +46,11 @@ public class kalangosSelenium {
       fail(verificationErrorString);
     }
   }
+  
+  /**
+   * This function is used to manage timeout. 
+   * @throws Exception
+   */
 public void fnTimeOut() throws Exception{
 	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 }

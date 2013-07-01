@@ -52,7 +52,9 @@ public class RunEMM {
 	        }
 	    }
 
-		
+		/**
+		 *  this below class is not used this HUG project.
+		 */
 		
 		/*SignInPage sip = new SignInPage();
 		try{
