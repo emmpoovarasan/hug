@@ -1,16 +1,13 @@
 package com.example.tests;
 
-import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
 import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
-import java.util.Date;
 import jxl.*;
 import jxl.write.*;
 	
@@ -37,7 +34,6 @@ public class kalangosSelenium {
 	driver.get(baseUrl);
 	
 	new Select(driver.findElement(By.name("statusmessage"))).selectByVisibleText(booleanValue);
-	
 	System.out.println("Selected Boolean value"+booleanValue+"\n");
     
 	driver.findElement(By.name("file")).sendKeys(filePath);
@@ -45,7 +41,9 @@ public class kalangosSelenium {
     driver.findElement(By.name("wsdl")).sendKeys(WSDL);
     driver.findElement(By.name("submitWS")).click();
     
-    resultOutput= driver.findElement(By.id("poo")).getText();
+    if(driver.findElement(By.id("poo")).getText() != null){
+    	resultOutput= driver.findElement(By.id("poo")).getText();	
+    }  
     System.out.println("======> "+resultOutput+" <===========");
     
     
@@ -68,10 +66,19 @@ public class kalangosSelenium {
    * Create Workbook & Worksheet
    */
   public void fnCreateExcelWorkBookAndSheet() throws Exception {
-	  if(workbook != null)
-	    workbook = Workbook.createWorkbook(new File("output.xls"));
-	  if(sheet != null)
-	    sheet = workbook.createSheet("Results", 0);
+	  if(workbook != null){
+		  workbook = Workbook.createWorkbook(new File("output.xls"));  
+	  }else{
+		  workbook = Workbook.createWorkbook(new File("output.xls"));  
+	  }
+		
+	    
+	  if(sheet != null){
+		  sheet = workbook.createSheet("Results", 0);
+	  }else{
+		  sheet = workbook.createSheet("Results", 0);  
+	  }
+	    
   }
   
   public void fnPassArgsToExcel(int i, String outputResults, String booleanResult) throws Exception{
