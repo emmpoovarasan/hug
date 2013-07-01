@@ -68,17 +68,24 @@ public class kalangosSelenium {
    * Create Workbook & Worksheet
    */
   public void fnCreateExcelWorkBookAndSheet() throws Exception {
+	  if(workbook != null)
 	    workbook = Workbook.createWorkbook(new File("output.xls"));
+	  if(sheet != null)
 	    sheet = workbook.createSheet("Results", 0);
   }
   
   public void fnPassArgsToExcel(int i, String outputResults, String booleanResult) throws Exception{
-	  Label outputResultslable = new Label(0, i, outputResults);
-	  Label booleanResultlable = new Label(1, i, booleanResult);
-	  if (sheet != null){
-		  sheet.addCell(outputResultslable);
-		  sheet.addCell(booleanResultlable);
+	  try{
+		  Label outputResultslable = new Label(0, i, outputResults);
+		  Label booleanResultlable = new Label(1, i, booleanResult);
+		  if (sheet != null){
+			  sheet.addCell(outputResultslable);
+			  sheet.addCell(booleanResultlable);
+		  }  
+	  }catch (Exception e){
+		  e.printStackTrace();
 	  }
+	  
   }
   public void fnCloseExcel() throws Exception{
 	  workbook.write();
