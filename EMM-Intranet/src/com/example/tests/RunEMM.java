@@ -16,7 +16,7 @@ public class RunEMM {
 		/**
 		 * HL7 Message reading location 
 		 */
-		File folder = new File("E:\\EMM_Projects\\Release_Works\\Test_documents\\Release7.2\\Messages2");
+		File folder = new File("E:\\EMM_Projects\\Release_Works\\Test_documents\\Release7.2\\updatedMessage-test");
 		//Files.getFileExtension("E:\\EMM_Projects\\Release_Works\\Test_documents\\Release7.2\\Messages2");
 		/**
 		 * int i - incrementing value to identify true or false data
@@ -25,8 +25,9 @@ public class RunEMM {
 		 */
 		int i=0;
 		String booleanValue="true";
-		String WSDL = "http://192.168.1.6:7800/EasyMedAPI/ws/hugs?wsdl";
-		//"http://192.168.1.6:7800/EasyMedAPI/ws/labResultNotification?wsdl"
+		String WSDL = "http://sandbox.easymedmobile.com:7800/EasyMedAPI/ws/hugs?wsdl";
+		//"http://192.168.1.6:7800/EasyMedAPI/ws/hugs?wsdl"
+		//"http://sandbox.easymedmobile.com:7800/EasyMedAPI/ws/hugs?wsdl"
 		/**
 		 * This below function is used to create excel
 		 */
