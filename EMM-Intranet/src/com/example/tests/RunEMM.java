@@ -16,7 +16,7 @@ public class RunEMM {
 		/**
 		 * HL7 Message reading location 
 		 */
-		File folder = new File("E:\\EMM_Projects\\Release_Works\\Test_documents\\Release7.2\\updatedMessage-test");
+		File folder = new File("E:\\EMM_Projects\\Release_Works\\Test_documents\\Release7.2\\updatedMessage-test\\EMMRelated");
 		//Files.getFileExtension("E:\\EMM_Projects\\Release_Works\\Test_documents\\Release7.2\\Messages2");
 		/**
 		 * int i - incrementing value to identify true or false data
@@ -24,6 +24,7 @@ public class RunEMM {
 		 * String WSDL is loading WSDL file
 		 */
 		int i=0;
+		int j=1;
 		String booleanValue="true";
 		String WSDL = "http://sandbox.easymedmobile.com:7800/EasyMedAPI/ws/hugs?wsdl";
 		//"http://192.168.1.6:7800/EasyMedAPI/ws/hugs?wsdl"
@@ -51,7 +52,7 @@ public class RunEMM {
 	  			  	}else{
 	  				  booleanValue="false";
 	  			  	}
-	        		System.out.println(i+" ========= Message Starts ==========");
+	        		System.out.println(j+" ========= Message Starts ==========");
 	        		System.out.println(fileEntry.getAbsolutePath());
 	        		/**
 	        		 * This below function is used to calling selenium functions
@@ -61,8 +62,9 @@ public class RunEMM {
 	        			kalangos.testkalangosSelenium(fileEntry.getAbsolutePath(),booleanValue,WSDL,i);
 	        			kalangos.tearDown();
 	        			System.out.println(fileEntry.getAbsolutePath());
-	        			System.out.println(i+" ========= Message Ends ==========\n\n");
+	        			System.out.println(j+" ========= Message Ends ==========\n\n");
 	        			i=i+1;
+	        			j=j+1;
 	        		}catch (Exception e){
 	        			e.printStackTrace();
 	        		}
