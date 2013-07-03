@@ -22,7 +22,8 @@ public class kalangosSelenium {
   @Before
   public void setUp() throws Exception {
     driver = new FirefoxDriver();
-    baseUrl = "http://192.168.1.6/test/kalangossoap.php";
+    baseUrl = "https://sandbox.easymedmobile.com/kalangossoap.php";
+    //baseUrl = "http://192.168.1.6/test/kalangossoap.php";
     // call timeout function
     fnTimeOut();
   }
@@ -34,7 +35,7 @@ public class kalangosSelenium {
 	driver.get(baseUrl);
 	
 	new Select(driver.findElement(By.name("statusmessage"))).selectByVisibleText(booleanValue);
-	System.out.println("Selected Boolean value"+booleanValue+"\n");
+	System.out.println("Selected Boolean value : "+booleanValue+"\n");
     
 	driver.findElement(By.name("file")).sendKeys(filePath);
     driver.findElement(By.name("wsdl")).clear();

@@ -48,9 +48,9 @@ public class RunEMM {
 	        } else {
 	        	if(Files.getFileExtension(fileEntry.getAbsoluteFile().getAbsolutePath()).equals("hl7")){
 	        		if((i % 2) == 0){
-	  				  booleanValue="true";
-	  			  	}else{
 	  				  booleanValue="false";
+	  			  	}else{
+	  				  booleanValue="true";
 	  			  	}
 	        		System.out.println(j+" ========= Message Starts ==========");
 	        		System.out.println(fileEntry.getAbsolutePath());
