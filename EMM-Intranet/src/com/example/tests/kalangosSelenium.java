@@ -1,8 +1,10 @@
 package com.example.tests;
 
+import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
 import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -16,6 +18,7 @@ public class kalangosSelenium {
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
+  
   WritableWorkbook workbook=null;
   WritableSheet sheet=null;
 
@@ -32,6 +35,7 @@ public class kalangosSelenium {
   public void testkalangosSelenium(String filePath, String booleanValue, String WSDL, int i) throws Exception {
     //driver.get(baseUrl + "/test/kalangossoap.php");
 	String resultOutput=null;
+
 	driver.get(baseUrl);
 	
 	new Select(driver.findElement(By.name("statusmessage"))).selectByVisibleText(booleanValue);
@@ -42,11 +46,13 @@ public class kalangosSelenium {
     driver.findElement(By.name("wsdl")).sendKeys(WSDL);
     driver.findElement(By.name("submitWS")).click();
     
+    // Warning: Get full text results may require manual changes
     if(driver.findElement(By.id("poo")).getText() != null){
-    	resultOutput= driver.findElement(By.id("poo")).getText();	
-    }  
-    System.out.println(resultOutput);
+    	resultOutput= driver.findElement(By.id("poo")).getText();
+    	System.out.println(resultOutput);
+    }
     
+    // add results to excel
     fnPassArgsToExcel(i,resultOutput,booleanValue);
     
     driver.findElement(By.linkText("Reset")).click();
@@ -85,6 +91,7 @@ public class kalangosSelenium {
 	  try{
 		  Label outputResultslable = new Label(0, i, outputResults);
 		  Label booleanResultlable = new Label(1, i, booleanResult);
+		  
 		  if (sheet != null){
 			  sheet.addCell(outputResultslable);
 			  sheet.addCell(booleanResultlable);
